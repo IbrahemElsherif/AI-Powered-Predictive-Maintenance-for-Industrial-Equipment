@@ -97,7 +97,7 @@ This project uses the [PRONOSTIA bearing dataset](https://www.femto-st.fr/en/Res
 
 ## 📂 Output Files
 
-- `data/processed/processed_bearing_rul_data.csv`
+- `notebooks/processed_bearing_rul_data.csv`
 - Trained models stored in Azure ML registry
 - Evaluation metrics logged per run
 
