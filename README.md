@@ -10,14 +10,17 @@ A machine learning pipeline for predicting the **Remaining Useful Life (RUL)** o
 ## 🔧 Project Structure
 
 ```
+data/                              # Data loading and preprocessing (not uploaded to the repo)
 src/
-├── data/           # Data loading and preprocessing (not uploaded to the repo)
-├── features/       # Feature engineering 
-├── models/         # Model training and evaluation
-├── prediction/     # Inference utilities
-├── utils/          # Config loading, logging, and MLflow helpers
-notebooks/          # Jupyter notebooks for experimentation
-config.yaml         # Central configuration
+├── base.py                        # Base module
+├── combine_sensor_data.py         # Combine the data
+├── data_factory.py                # Data preprocessing
+├── feature_engineering.py         # Feature engineering 
+├── train_pipeline.py              # Model training and evaluation
+├── prediction.py                  # Inference utilities
+├── utils/                         # Config loading, logging, and MLflow helpers
+notebooks/                         # Jupyter notebooks for experimentation
+config.yaml                        # Central configuration
 ```
 
 ---
@@ -26,7 +29,7 @@ config.yaml         # Central configuration
 
 1. **Modular Codebase**: Clean separation of data, features, models, and prediction logic.
 2. **Local MLflow Tracking**: Run experiments locally and log parameters, metrics, and artifacts.
-3. **Notebook-to-Script Conversion**: Prototyped in notebooks, converted to CLI scripts (`combine_data.py`, `train_model.py`, etc.).
+3. **Notebook-to-Script Conversion**: Prototyped in notebooks, converted to CLI scripts (`combine_sensor_data.py`, `train_pipeline.py`, etc.).
 4. **Azure ML Integration**:
    - Data stored in Azure Blob Storage
    - ML pipelines run modular stages: data prep → feature engineering → training → RUL prediction
@@ -53,7 +56,7 @@ config.yaml         # Central configuration
 
 4. **Train model**:
    ```bash
-   python src/models/train_model.py --config config.yaml
+   python src/train_pipeline.py --config config.yaml
    ```
 
 ---
